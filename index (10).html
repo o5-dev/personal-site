@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#1b1b1b">
+<title>Jacob – Maker Portfolio</title>
+<meta name="description" content="Jacob – a young maker from the Czech Republic. UI/UX, graphic design, web development and electronics.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jersey+10&family=Press+Start+2P&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- shared SVG bits: torn-edge filter, icons, resistor, cube -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <filter id="rough-edge" x="-5%" y="-30%" width="110%" height="160%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.07" numOctaves="2" seed="4" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="4" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+
+    <symbol id="i-github" viewBox="0 0 16 16"><path fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round" d="M8 1.2a6.8 6.8 0 0 0-2.15 13.25c.34.06.46-.15.46-.33v-1.2c-1.9.41-2.3-.8-2.3-.8-.31-.8-.76-1-.76-1-.62-.42.05-.41.05-.41.69.05 1.05.71 1.05.71.61 1.05 1.6.75 1.99.57.06-.44.24-.75.43-.92-1.52-.17-3.12-.76-3.12-3.38 0-.75.27-1.36.71-1.84-.07-.17-.31-.87.07-1.81 0 0 .58-.18 1.88.7a6.5 6.5 0 0 1 3.42 0c1.3-.88 1.88-.7 1.88-.7.38.94.14 1.64.07 1.81.44.48.71 1.09.71 1.84 0 2.63-1.6 3.2-3.13 3.37.25.22.47.63.47 1.27v1.88c0 .18.12.4.47.33A6.8 6.8 0 0 0 8 1.2z"/></symbol>
+    <symbol id="i-slack" viewBox="0 0 16 16"><g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"><path d="M6 2v4M10 2v4M2 6h4M2 10h4M14 6h-4M14 10h-4M6 14v-4M10 14v-4"/><circle cx="6" cy="2.2" r="1"/><circle cx="13.8" cy="6" r="1"/><circle cx="10" cy="13.8" r="1"/><circle cx="2.2" cy="10" r="1"/></g></symbol>
+    <symbol id="i-insta" viewBox="0 0 16 16"><g fill="none" stroke="currentColor" stroke-width="1.3"><rect x="1.8" y="1.8" width="12.4" height="12.4" rx="3.6"/><circle cx="8" cy="8" r="2.9"/></g><circle cx="11.7" cy="4.3" r=".8" fill="currentColor"/></symbol>
+    <symbol id="i-discord" viewBox="0 0 16 16"><path fill="currentColor" d="M13.5 3.4A12.3 12.3 0 0 0 10.4 2.4l-.4.8a11 11 0 0 0-4 0l-.4-.8a12.3 12.3 0 0 0-3.1 1C.6 6.3.1 9.1.3 11.9a12.4 12.4 0 0 0 3.8 1.9l.8-1.3c-.4-.2-.8-.4-1.2-.7l.3-.2a8.8 8.8 0 0 0 7.6 0l.3.2c-.4.3-.8.5-1.2.7l.8 1.3a12.4 12.4 0 0 0 3.8-1.9c.3-3.3-.5-6.1-2.2-8.5zM5.6 10.2c-.7 0-1.3-.7-1.3-1.5s.6-1.5 1.3-1.5 1.3.7 1.3 1.5-.6 1.5-1.3 1.5zm4.8 0c-.7 0-1.3-.7-1.3-1.5s.6-1.5 1.3-1.5 1.3.7 1.3 1.5-.6 1.5-1.3 1.5z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 16 16"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"><rect x="1.5" y="3" width="13" height="10" rx="1.8"/><path d="M2 4.5l6 4.8 6-4.8"/></g></symbol>
+    <symbol id="i-star" viewBox="0 0 16 16"><path fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" d="M8 1.6l1.9 4 4.3.5-3.2 3 .9 4.3L8 11.2 4.1 13.4 5 9.1 1.8 6.1l4.3-.5z"/></symbol>
+
+    <symbol id="resistor" viewBox="0 0 543 129">
+      <rect y="53.8867" width="543" height="20.7252" fill="#C6CCDB"/>
+      <rect x="186.527" y="12.4336" width="145.076" height="103.626" fill="#1290D3"/>
+      <circle cx="350.256" cy="64.2481" r="64.2481" fill="#1290D3"/>
+      <circle cx="155.439" cy="64.2481" r="64.2481" fill="#1290D3"/>
+      <rect x="252.848" y="12.4336" width="16.5802" height="103.626" fill="#272727"/>
+      <rect x="294.297" y="12.4336" width="16.5802" height="103.626" fill="#E8DA72"/>
+      <rect x="211.395" y="12.4336" width="16.5802" height="103.626" fill="#BA486C"/>
+    </symbol>
+
+    <symbol id="cube" viewBox="0 0 100 100"><g fill="none" stroke="#242424" stroke-width="7" stroke-linejoin="round"><path d="M50 5l40 22v46L50 95 10 73V27z"/><path d="M10 27l40 22 40-22M50 49v46"/></g></symbol>
+  </defs>
+</svg>
+
+<nav>
+  <div class="inner">
+    <a href="#top">welcome!</a>
+    <ul>
+      <li><a href="#about">About me</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero" id="top">
+  <div class="inner">
+
+    <svg class="lcd" id="lcd" viewBox="0 0 3711 1687" role="img" aria-label="LCD display: Hi! I'm Jacob">
+      <rect width="3711" height="1687" fill="#00943C"/>
+      <path d="M355 109V297M454 109V297M553 109V297M652 109V297M751 109V297M850 109V297M949 109V297M1048 109V297M1147 109V297M1246 109V297M1345 109V297M1444 109V297M1543 109V297M1642 109V297M1741 109V297M1840 109V297" stroke="#00742F" stroke-width="18" fill="none"/>
+      <rect x="189" y="280" width="3333" height="1127" fill="#000"/>
+      <path d="M3522 538L3646 678V993L3522 1149.5V538Z" fill="#B0ABB2"/>
+      <rect x="320" y="485" width="3072" height="718" fill="#06A7F6"/>
+
+      <g id="cells"></g>
+      <g id="chars"></g>
+      <rect id="cursor" class="cursor" width="161" height="26" x="443" y="810"/>
+
+      <g fill="#131313">
+        <circle cx="125.5" cy="1561.5" r="125.5"/><circle cx="125.5" cy="125.5" r="125.5"/>
+        <circle cx="3585.5" cy="125.5" r="125.5"/><circle cx="3583.5" cy="1561.5" r="125.5"/>
+      </g>
+      <g fill="none" stroke="#E8D880" stroke-width="38">
+        <circle cx="125.5" cy="1561.5" r="106.5"/><circle cx="125.5" cy="125.5" r="106.5"/>
+        <circle cx="3585.5" cy="125.5" r="106.5"/><circle cx="3583.5" cy="1561.5" r="106.5"/>
+      </g>
+      <path fill="#D5D5D5" d="M317 63h77v77h-77zM416 63h77v77h-77zM515 63h77v77h-77zM614 63h77v77h-77zM713 63h77v77h-77zM812 63h77v77h-77zM910 63h78v77h-78zM1009 63h78v77h-78zM1108 63h78v77h-78zM1207 63h78v77h-78zM1306 63h77v77h-77zM1405 63h77v77h-77zM1504 63h77v77h-77zM1603 63h77v77h-77zM1702 63h77v77h-77zM1801 63h77v77h-77z"/>
+    </svg>
+
+    <div class="push-row">
+      <a class="pushbtn" href="#projects" aria-label="View projects"><span class="ph"></span><span class="label">View projects</span></a>
+      <a class="pushbtn" href="#contact" aria-label="Contact me"><span class="ph"></span><span class="label">Contact me</span></a>
+    </div>
+
+  </div>
+</header>
+
+<!-- ================= ABOUT ================= -->
+<section class="about" id="about">
+  <div class="inner">
+    <div class="title"><h2>About Me</h2><svg class="res" viewBox="0 0 543 129" aria-hidden="true"><use href="#resistor"/></svg></div>
+    <p>
+      I'm a young maker from the Czech Republic passionate about technology, engineering, and design. I work across UI/UX, graphic design, web development, and electronics, combining creativity with technical problem-solving.<br>
+      I enjoy experimenting with new technologies and turning ideas into functional, well-designed projects that are both useful and visually appealing.
+    </p>
+  </div>
+
+  <!-- wires.svg -->
+  <svg class="wires" viewBox="0 0 851 1967" fill="none" aria-hidden="true">
+    <path d="M822 61V1726" stroke-width="33" stroke="#9C06A9"/>
+    <path d="M723 0V1665" stroke-width="33" stroke="#60019F"/>
+    <path d="M624 61V1726" stroke-width="33" stroke="#061F73"/>
+    <path d="M525 0V1665" stroke-width="33" stroke="#009ABD"/>
+    <path d="M426 61V1726" stroke-width="33" stroke="#015724"/>
+    <path d="M327 0V1665" stroke-width="33" stroke="#5CB702"/>
+    <path d="M228 61V1726" stroke-width="33" stroke="#D9A90B"/>
+    <path d="M129 0V1665" stroke-width="33" stroke="#E07102"/>
+    <path d="M30 61V1726" stroke-width="33" stroke="#D30606"/>
+    <g fill="#000">
+      <rect y="1726" width="59" height="184"/><rect x="99" y="1665" width="59" height="184"/>
+      <rect x="198" y="1726" width="59" height="184"/><rect x="297" y="1665" width="59" height="184"/>
+      <rect x="396" y="1726" width="59" height="184"/><rect x="495" y="1665" width="59" height="184"/>
+      <rect x="594" y="1726" width="59" height="184"/><rect x="693" y="1665" width="59" height="184"/>
+      <rect x="792" y="1726" width="59" height="184"/>
+    </g>
+    <g fill="#979797">
+      <rect x="22" y="1910" width="15" height="57"/><rect x="121" y="1849" width="15" height="57"/>
+      <rect x="220" y="1910" width="15" height="57"/><rect x="319" y="1849" width="15" height="57"/>
+      <rect x="418" y="1910" width="15" height="57"/><rect x="517" y="1849" width="15" height="57"/>
+      <rect x="616" y="1910" width="15" height="57"/><rect x="715" y="1849" width="15" height="57"/>
+      <rect x="814" y="1910" width="15" height="57"/>
+    </g>
+  </svg>
+</section>
+
+<!-- ================= PROJECTS ================= -->
+<section class="projects" id="projects">
+  <div class="inner">
+    <div class="title"><h2>Projects</h2><svg class="res" viewBox="0 0 543 129" aria-hidden="true"><use href="#resistor"/></svg></div>
+
+    <div class="cards">
+      <article class="card">
+        <div class="head"><h3>SnapMath</h3><p>app for learning math with an AI tutor</p></div>
+        <div class="tags torn">UI · Website app · AI</div>
+        <div class="shot">
+          <!-- <img src="assets/snapmath.png" alt="SnapMath screenshot"> -->
+          <svg class="cube" aria-hidden="true"><use href="#cube"/></svg>
+          <a class="gh torn" href="https://github.com/o5-dev/SnapMath" target="_blank" rel="noopener"><svg class="ico"><use href="#i-github"/></svg>View on GitHub</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="head"><h3>Face Lock</h3><p>door security system with face recognition</p></div>
+        <div class="tags torn">AI learning · UI · ESP32</div>
+        <div class="shot">
+          <!-- <img src="assets/facelock.png" alt="Face Lock photo"> -->
+          <svg class="cube" aria-hidden="true"><use href="#cube"/></svg>
+          <a class="gh torn" href="https://github.com/o5-dev" target="_blank" rel="noopener"><svg class="ico"><use href="#i-github"/></svg>View on GitHub</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="head"><h3>nRF Box</h3><p>tool for measuring the 2.4 GHz band</p></div>
+        <div class="tags torn">ESP32 · nRF24 · TFT display</div>
+        <div class="shot">
+          <!-- <img src="assets/nrfbox.png" alt="nRF Box photo"> -->
+          <svg class="cube" aria-hidden="true"><use href="#cube"/></svg>
+          <a class="gh torn" href="https://github.com/o5-dev" target="_blank" rel="noopener"><svg class="ico"><use href="#i-github"/></svg>View on GitHub</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BREADBOARD (assets/breadboard.png) ================= -->
+<div class="board" role="presentation"></div>
+
+<!-- ================= CONTACT ================= -->
+<footer class="contact" id="contact">
+  <div class="inner">
+    <div class="title"><h2>Contact</h2><svg class="res" viewBox="0 0 543 129" aria-hidden="true"><use href="#resistor"/></svg></div>
+    <div class="links">
+      <a class="torn" href="https://github.com/o5-dev" target="_blank" rel="noopener"><svg class="ico"><use href="#i-github"/></svg>GitHub</a>
+      <a class="torn" href="https://hackclub.enterprise.slack.com/team/U0CBXDXP6JV" target="_blank" rel="noopener"><svg class="ico"><use href="#i-slack"/></svg>Slack</a>
+      <a class="torn" href="https://www.instagram.com/o5dev/" target="_blank" rel="noopener"><svg class="ico"><use href="#i-insta"/></svg>Instagram</a>
+      <a class="torn" href="https://discord.com/users/1252121194858283048" target="_blank" rel="noopener"><svg class="ico"><use href="#i-discord"/></svg>Discord</a>
+      <a class="torn" href="mailto:o5.coucil1@gmail.com"><svg class="ico"><use href="#i-mail"/></svg>Email</a>
+      <a class="torn" href="https://stardance.hackclub.com/@o5/projects" target="_blank" rel="noopener"><svg class="ico"><use href="#i-star"/></svg>Stardance</a>
+    </div>
+  </div>
+</footer>
+
+<!-- push-button graphic (button.svg) – cloned into both hero buttons -->
+<template id="btn-tpl">
+  <svg viewBox="0 0 554 383" fill="none" aria-hidden="true">
+    <circle class="halo" cx="276.5" cy="190.5" r="150"/>
+    <path d="M84 35.5V348.5L121.5 382.5H434.5L469.5 348.5V35.5L434.5 0H121.5L84 35.5Z" fill="#2C3245"/>
+    <rect x="122" y="36" width="310" height="310" rx="28" fill="#D3D3D3"/>
+    <circle class="cap" cx="276.5" cy="190.5" r="122.5" fill="black"/>
+    <circle cx="154" cy="67" r="18" fill="black"/>
+    <circle cx="399" cy="68" r="18" fill="black"/>
+    <circle cx="154" cy="313" r="18" fill="black"/>
+    <circle cx="399" cy="314" r="18" fill="black"/>
+    <rect y="254" width="84" height="30" fill="#C6CCDB"/>
+    <rect y="98" width="84" height="30" fill="#C6CCDB"/>
+    <rect x="470" y="254" width="84" height="30" fill="#C6CCDB"/>
+    <rect x="470" y="98" width="84" height="30" fill="#C6CCDB"/>
+  </svg>
+</template>
+
+<script src="script.js"></script>
+</body>
+</html>
